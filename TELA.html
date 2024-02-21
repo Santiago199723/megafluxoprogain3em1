@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEGA FLUXO PRÓ GAIN</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./sty.css">
+  <style>
+    /* Estilos adicionais para dispositivos móveis */
+    @media only screen and (max-width: 600px) {
+      /* Adicione estilos de layout específicos para telas menores aqui */
+      .card {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Outros estilos */
+    .selected {
+      outline: 3px solid blue;
+      outline-offset: -2px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Blocos de imagens -->
+
+<!-- Fim dos blocos -->
+<div class="card" onclick="toggleImageSelection(this, 'indicador1.html')">
+  <div class="wrapper">
+    <img src="cover1.jpg" class="cover-image" alt="Cover Image 1">
+  </div>
+  <img src="title1.png" class="title" alt="Title 1">
+  <img src="foto1.webp" class="character" alt="Character 1">
+</div>
+
+<div class="card" onclick="toggleImageSelection(this, 'indicador2.html')">
+  <div class="wrapper">
+    <img src="cover2.jpg" class="cover-image" alt="Cover Image 2">
+  </div>
+  <img src="title2.png" class="title" alt="Title 2">
+  <img src="foto2.webp" class="character" alt="Character 2">
+</div>
+
+<div class="card" onclick="toggleImageSelection(this, 'indicador3.html')">
+  <div class="wrapper">
+    <img src="cover3.jpg" class="cover-image" alt="Cover Image 3">
+  </div>
+  <img src="title3.png" class="title" alt="Title 3">
+  <img src="foto3.webp" class="character" alt="Character 3">
+</div>
+
+<!-- Switch -->
+<div class="switch-container">
+  <label class="switch">
+    <input class="switch__input" type="checkbox" role="switch" onclick="redirectOnSwitch()">
+    <span class="switch__base-outer"></span>
+    <span class="switch__base-inner"></span>
+    <svg class="switch__base-neon" viewBox="0 0 40 24" width="40px" height="24px">
+      <!-- SVG para o switch -->
+    </svg>
+    <span class="switch__knob-shadow"></span>
+    <span class="switch__knob-container">
+      <span class="switch__knob">
+        <svg class="switch__knob-neon" viewBox="0 0 48 48" width="48px" height="48px">
+          <!-- SVG para o knob -->
+        </svg> 
+      </span>
+    </span>
+    <span class="switch__led"></span>
+    <span class="switch__text">Power</span>
+  </label>
+</div>
+<!-- Fim do switch -->
+
+<script>
+  var selectedCard = null;
+  var selectedImageLink = "";
+  
+  function toggleImageSelection(card, link) {
+    if (selectedCard === card) {
+      selectedCard.classList.remove("selected");
+      selectedCard = null;
+      selectedImageLink = "";
+    } else {
+      if (selectedCard !== null) {
+        selectedCard.classList.remove("selected");
+      }
+      selectedCard = card;
+      selectedCard.classList.add("selected");
+      selectedImageLink = link;
+    }
+  }
+
+  function redirectOnSwitch() {
+    if(selectedImageLink !== "") {
+      setTimeout(function() {
+        window.location.href = selectedImageLink;
+      }, 500);
+    } else {
+      alert("Por favor, selecione uma imagem antes de ativar o switch.");
+    }
+  }
+
+  window.onload = function() {
+    document.querySelector('.switch__input').checked = false;
+  };
+
+  window.addEventListener('unload', function() {
+    document.querySelector('.switch__input').checked = false;
+  });
+</script>
+
+</body>
+</html>
