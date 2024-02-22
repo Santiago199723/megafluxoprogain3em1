@@ -11,35 +11,44 @@
       outline: 3px solid blue; /* Adicione aqui o estilo que deseja para indicar que a imagem está selecionada */
       outline-offset: -2px; /* Para compensar a largura da borda e manter o tamanho da imagem */
     }
+
+    .card-container {
+      display: flex;
+      flex-direction: column; /* Para alinhar as imagens uma abaixo da outra */
+    }
+
+    .card {
+      margin-bottom: 20px; /* Espaçamento entre as imagens */
+    }
   </style>
 </head>
 <body>
 
 <!-- Blocos de imagens -->
-
-<!-- Fim dos blocos -->
-<div class="card" onclick="toggleImageSelection(this, 'indicador1.html')">
-  <div class="wrapper">
-    <img src="cover1.jpg" class="cover-image" />
+<div class="card-container">
+  <div class="card" onclick="toggleImageSelection(this, 'indicador1.html')">
+    <div class="wrapper">
+      <img src="cover1.jpg" class="cover-image" />
+    </div>
+    <img src="title1.png" class="title" />
+    <img src="foto1.webp" class="character" />
   </div>
-  <img src="title1.png" class="title" />
-  <img src="foto1.webp" class="character" />
-</div>
 
-<div class="card" onclick="toggleImageSelection(this, 'indicador2.html')">
-  <div class="wrapper">
-    <img src="cover2.jpg" class="cover-image" />
+  <div class="card" onclick="toggleImageSelection(this, 'indicador2.html')">
+    <div class="wrapper">
+      <img src="cover2.jpg" class="cover-image" />
+    </div>
+    <img src="title2.png" class="title" />
+    <img src="foto2.webp" class="character" />
   </div>
-  <img src="title2.png" class="title" />
-  <img src="foto2.webp" class="character" />
-</div>
 
-<div class="card" onclick="toggleImageSelection(this, 'indicador3.html')">
-  <div class="wrapper">
-    <img src="cover3.jpg" class="cover-image" />
+  <div class="card" onclick="toggleImageSelection(this, 'indicador3.html')">
+    <div class="wrapper">
+      <img src="cover3.jpg" class="cover-image" />
+    </div>
+    <img src="title3.png" class="title" />
+    <img src="foto3.webp" class="character" />
   </div>
-  <img src="title3.png" class="title" />
-  <img src="foto3.webp" class="character" />
 </div>
 <!-- Switch -->
 <div class="switch-container">
@@ -109,7 +118,7 @@
         window.location.href = selectedImageLink;
       }, 500); // Tempo de atraso em milissegundos (500ms neste exemplo)
     } else {
-      alert("Por favor, selecione uma imagem antes de ativar o switch.");
+      alert("Por favor, selecione uma imagem antes de ativar o botão.");
     }
   }
 
