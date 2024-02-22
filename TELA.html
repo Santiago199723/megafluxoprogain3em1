@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>MEGA FLUXO PRÓ GAIN</title>
-  <link rel="stylesheet" href="./style.css">
-  <title>MEGA FLUXO PRÓ GAIN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./sty.css">
   <style>
     .selected {
@@ -128,8 +127,26 @@
   window.addEventListener('unload', function() {
     document.querySelector('.switch__input').checked = false;
   });
+
+  // Adiciona evento de touch para arrastar o botão de rolar horizontalmente
+  let startX;
+  let scrollLeft;
+
+  document.querySelector('.switch__input').addEventListener('touchstart', (e) => {
+    startX = e.touches[0].pageX - document.querySelector('.switch__knob-container').offsetLeft;
+    scrollLeft = document.querySelector('.switch__knob-container').scrollLeft;
+  });
+
+  document.querySelector('.switch__input').addEventListener('touchmove', (e) => {
+    if (!startX) {
+      return;
+    }
+    e.preventDefault();
+    const x = e.touches[0].pageX - document.querySelector('.switch__knob-container').offsetLeft;
+    const walk = (x - startX) * 2; // Ajuste a sensibilidade do deslize aqui
+    document.querySelector('.switch__knob-container').scrollLeft = scrollLeft - walk;
+  });
 </script>
 
 </body>
 </html>
-
