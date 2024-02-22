@@ -18,34 +18,29 @@
 <!-- Blocos de imagens -->
 
 <!-- Fim dos blocos -->
-<a href="#" onclick="toggleImageSelection(this, 'indicador1.html')">
-  <div class="card">
-    <div class="wrapper">
-      <img src="cover1.jpg" class="cover-image" />
-    </div>
-    <img src="title1.png" class="title" />
-    <img src="foto1.webp" class="character" />
+<div class="card" onclick="toggleImageSelection(this, 'indicador1.html')">
+  <div class="wrapper">
+    <img src="cover1.jpg" class="cover-image" />
   </div>
-</a>
+  <img src="title1.png" class="title" />
+  <img src="foto1.webp" class="character" />
+</div>
 
-<a href="#" onclick="toggleImageSelection(this, 'indicador2.html')">
-  <div class="card">
-    <div class="wrapper">
-      <img src="cover2.jpg" class="cover-image" />
-    </div>
-    <img src="title2.png" class="title" />
-    <img src="foto2.webp" class="character" />
+<div class="card" onclick="toggleImageSelection(this, 'indicador2.html')">
+  <div class="wrapper">
+    <img src="cover2.jpg" class="cover-image" />
   </div>
-</a>
-<a href="#" onclick="toggleImageSelection(this, 'indicador3.html')">
-  <div class="card">
-    <div class="wrapper">
-      <img src="cover3.jpg" class="cover-image" />
-    </div>
-    <img src="title3.png" class="title" />
-    <img src="foto3.webp" class="character" />
+  <img src="title2.png" class="title" />
+  <img src="foto2.webp" class="character" />
+</div>
+
+<div class="card" onclick="toggleImageSelection(this, 'indicador3.html')">
+  <div class="wrapper">
+    <img src="cover3.jpg" class="cover-image" />
   </div>
-</a>
+  <img src="title3.png" class="title" />
+  <img src="foto3.webp" class="character" />
+</div>
 <!-- Switch -->
 <div class="switch-container">
   <label class="switch">
@@ -126,25 +121,6 @@
   // Desligar o switch quando a página é fechada ou recarregada
   window.addEventListener('unload', function() {
     document.querySelector('.switch__input').checked = false;
-  });
-
-  // Adiciona evento de touch para arrastar o botão de rolar horizontalmente
-  let startX;
-  let scrollLeft;
-
-  document.querySelector('.switch__input').addEventListener('touchstart', (e) => {
-    startX = e.touches[0].pageX - document.querySelector('.switch__knob-container').offsetLeft;
-    scrollLeft = document.querySelector('.switch__knob-container').scrollLeft;
-  });
-
-  document.querySelector('.switch__input').addEventListener('touchmove', (e) => {
-    if (!startX) {
-      return;
-    }
-    e.preventDefault();
-    const x = e.touches[0].pageX - document.querySelector('.switch__knob-container').offsetLeft;
-    const walk = (x - startX) * 2; // Ajuste a sensibilidade do deslize aqui
-    document.querySelector('.switch__knob-container').scrollLeft = scrollLeft - walk;
   });
 </script>
 
