@@ -15,10 +15,30 @@
     .card-container {
       display: flex;
       flex-direction: column; /* Para alinhar as imagens uma abaixo da outra */
+      margin-top: 320px; /* Adicionar margem superior para mover as imagens para baixo */
     }
 
-    .card {
-      margin-bottom: 20px; /* Espaçamento entre as imagens */
+
+    .switch-container {
+  margin-top: 320px; /* Adicione uma margem superior para mover o botão para baixo */
+}
+
+
+
+  .card {
+    margin-bottom: 27px; /* Defina o espaçamento desejado entre as imagens */
+  }
+
+
+  .card:first-child {
+    margin-bottom: 20px; /* Mantendo a margem inferior normal para a primeira imagem */
+  }
+
+
+
+    .wrapper img {
+      max-width: 100%; /* Definir largura máxima para as imagens */
+      height: auto;
     }
   </style>
 </head>
@@ -26,7 +46,7 @@
 
 <!-- Blocos de imagens -->
 <div class="card-container">
-  <div class="card" onclick="toggleImageSelection(this, 'indicador1.html')">
+  <div class="card" onclick="toggleImageSelection(this, 'indicador1.html')" style="margin-top: 50px;">
     <div class="wrapper">
       <img src="cover1.jpg" class="cover-image" />
     </div>
@@ -50,13 +70,14 @@
     <img src="foto3.webp" class="character" />
   </div>
 </div>
+
 <!-- Switch -->
 <div class="switch-container">
   <label class="switch">
     <input class="switch__input" type="checkbox" role="switch" onclick="redirectOnSwitch()">
     <span class="switch__base-outer"></span>
     <span class="switch__base-inner"></span>
-    <svg class="switch__base-neon" viewBox="0 0 40 24" width="40px" height="24px">
+    <svg class="switch__base-neon" viewBox="0 0 40 24" width="30px" height="20px">
       <defs>
         <filter id="switch-glow">
           <feGaussianBlur result="coloredBlur" stddeviation="1"></feGaussianBlur>
@@ -80,7 +101,7 @@
     <span class="switch__knob-shadow"></span>
     <span class="switch__knob-container">
       <span class="switch__knob">
-        <svg class="switch__knob-neon" viewBox="0 0 48 48" width="48px" height="48px">
+        <svg class="switch__knob-neon" viewBox="0 0 48 48" width="40px" height="40px">
           <circle fill="none" stroke="url(#switch-gradient2)" stroke-dasharray="0 90.32 0 54.19" stroke-linecap="round" stroke-width="1" r="23" cx="24" cy="24" transform="rotate(-112.5,24,24)" />
         </svg> 
       </span>
@@ -118,7 +139,7 @@
         window.location.href = selectedImageLink;
       }, 500); // Tempo de atraso em milissegundos (500ms neste exemplo)
     } else {
-      alert("Por favor, selecione uma imagem antes de ativar o botão.");
+      alert("Por favor, selecione um dos indicadores antes de ligar o botão.");
     }
   }
 
